@@ -6,7 +6,7 @@ module.exports = async({ usersToCreate = 5, notesToCreate = 100 } = {}) => {
   const loggedInUser = await User.create({
     username: 'test@test.com',
     password: 'password',
-    profilePhotoUrl: chance.url()
+    profilePhotoUrl: 'url'
   });
 
   // const users = await User.create([...Array(usersToCreate)].slice(1).map(() => ({
