@@ -49,18 +49,28 @@ describe('grams routes', () => {
       });
   });
 
-  // it('updates a gram by id', async() => {
-  //   const user = await getUser({ username: 'test@test.com' });
-  //   const gram = await getGram({ author: user._id });
-  //   return getAgent()
-  //     .patch(`/api/v1/grams/${gram._id}`)
-  //     .send({ caption: 'new better caption' })
-  //     .then(res => {
-  //       expect(res.body).toEqual({
-  //         ...gram,
-  //         author: user._id,
-  //         caption: 'new better caption'
-  //       });
-  //     });
-  // });
+  it('updates a gram by id', async() => {
+    const user = await getUser({ username: 'test@test.com' });
+    const gram = await getGram({ author: user._id });
+    return getAgent()
+      .patch(`/api/v1/grams/${gram._id}`)
+      .send({ caption: 'new better caption' })
+      .then(res => {
+        expect(res.body).toEqual({
+          ...gram,
+          caption: 'new better caption'
+        });
+      });
+  });
+
+  it('deletes a gram', async() => {
+    const user = await getUser({ username: 'test@test.com' });
+    const gram = await getGram({ author: user._id });
+
+    return getAgent()
+      .delete(`/api/v1/grams/${gram._id}`)
+      .then(res => {
+        expect(res.body).toEqual(gram);
+      });
+  });
 });
