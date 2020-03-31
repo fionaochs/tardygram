@@ -42,10 +42,25 @@ describe('grams routes', () => {
 
   it('gets all grams', async() => {
     const grams = await getGrams();
-    return request(app)
+    return getAgent()
       .get('/api/v1/grams')
       .then(res => {
         expect(res.body).toEqual(grams);
       });
   });
+
+  // it('updates a gram by id', async() => {
+  //   const user = await getUser({ username: 'test@test.com' });
+  //   const gram = await getGram({ author: user._id });
+  //   return getAgent()
+  //     .patch(`/api/v1/grams/${gram._id}`)
+  //     .send({ caption: 'new better caption' })
+  //     .then(res => {
+  //       expect(res.body).toEqual({
+  //         ...gram,
+  //         author: user._id,
+  //         caption: 'new better caption'
+  //       });
+  //     });
+  // });
 });
