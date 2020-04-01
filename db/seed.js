@@ -3,7 +3,7 @@ const User = require('../lib/models/User');
 const Gram = require('../lib/models/Gram');
 const Comment = require('../lib/models/Comment');
 
-module.exports = async({ usersToCreate = 5, gramsToCreate = 100, commentsToCreate = 100 } = {}) => {
+module.exports = async({ usersToCreate = 10, gramsToCreate = 100, commentsToCreate = 100 } = {}) => {
   const loggedInUser = await User.create({
     username: 'test@test.com',
     password: 'password',
