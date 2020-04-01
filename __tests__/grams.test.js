@@ -1,8 +1,5 @@
 const { getGram, getGrams, getUser, getAgent, getComments } = require('../db/data-helpers');
 
-// const request = require('supertest');
-// const app = require('../lib/app');
-
 describe('grams routes', () => {
   it('creates a gram', async() => {
     const user = await getUser({ username: 'test@test.com' });
