@@ -1,8 +1,5 @@
 const { getGram, getComment, getUser, getAgent } = require('../db/data-helpers');
 
-const request = require('supertest');
-const app = require('../lib/app');
-
 describe('comments routes', () => {
   it('creates a comment', async() => {
     const user = await getUser({ username: 'test@test.com' });
