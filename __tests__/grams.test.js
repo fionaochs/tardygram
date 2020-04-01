@@ -24,6 +24,15 @@ describe('grams routes', () => {
       });
   });
 
+  it('gets most popular gram', async() => {
+    const grams = await getGrams();
+    return getAgent()
+      .get('/api/v1/grams')
+      .then(res => {
+        expect(res.body).toEqual(grams);
+      });
+  });
+  
   it('gets a gram by id', async() => {
     const user = await getUser({ username: 'test@test.com' });
     const gram = await getGram({ author: user._id });
